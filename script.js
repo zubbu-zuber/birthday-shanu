@@ -1,6 +1,6 @@
 function nextPage() {
 
-document.querySelector(".heart1").innerHTML="💥";
+document.querySelector(".heart1").style.visibility="hidden";
 
 setTimeout(() => {
 
@@ -11,11 +11,9 @@ document.getElementById("page2").classList.remove("hidden");
 
 }
 
-
-
 function showMemories(){
 
-document.querySelector(".cake2").innerHTML="💥";
+document.querySelector(".cake2").style.visibility="hidden";
 
 setTimeout(() => {
 
@@ -26,11 +24,9 @@ document.getElementById("page3").classList.remove("hidden");
 
 }
 
-
-
 function showMessage(){
 
-document.querySelector(".heart3").innerHTML="💥";
+document.querySelector(".heart3").style.visibility="hidden";
 
 setTimeout(() => {
 
@@ -41,11 +37,9 @@ document.getElementById("page4").classList.remove("hidden");
 
 }
 
-
-
 function lastPage(){
 
-document.querySelector(".heart4").innerHTML="💥";
+document.querySelector(".heart4").style.visibility="hidden";
 
 setTimeout(() => {
 
@@ -55,8 +49,6 @@ document.getElementById("page5").classList.remove("hidden");
 },500);
 
 }
-
-
 
 /* ❤️ Photo Slider */
 
@@ -94,8 +86,6 @@ slider.src = images[index];
 
 setInterval(changeImage,3000);
 
-
-
 /* 🕯️ Page 1 Candles Auto Blow */
 
 setTimeout(() => {
@@ -104,13 +94,11 @@ let c1 = document.getElementById("candles1");
 
 if(c1){
 
-c1.innerHTML = "💨";
+c1.style.visibility="hidden";
 
 }
 
 },5000);
-
-
 
 /* 🕯️ Page 2 Candles Auto Blow */
 
@@ -122,7 +110,7 @@ let c2 = document.getElementById("candles2");
 
 if(c2){
 
-c2.innerHTML = "💨";
+c2.style.visibility="hidden";
 
 }
 
@@ -130,15 +118,13 @@ c2.innerHTML = "💨";
 
 }
 
-
-
 /* Page 2 open hone ke baad candle timer start */
 
 const originalNextPage = nextPage;
 
 nextPage = function(){
 
-document.querySelector(".heart1").innerHTML="💥";
+document.querySelector(".heart1").style.visibility="hidden";
 
 setTimeout(() => {
 
