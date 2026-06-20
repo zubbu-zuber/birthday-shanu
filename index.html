@@ -15,13 +15,15 @@
         <h1>A Special Surprise For Shanu 😘</h1>
         <div class="cake">🎂</div>
 
-        <div class="candles">
-            🕯️ 🕯️ 🕯️ 🕯️ 🕯️
-        </div>
+        </div> <div class="candles" id="candles">
+    🕯️ 🕯️ 🕯️ 🕯️ 🕯️
+</div>
 
-        <button onclick="nextPage()">
-            Blow Candles My Love ❤️
-        </button>
+<h3>💨 Blow on the candles, My Love ❤️</h3>
+
+<button id="micBtn">
+    🎤 Start Blowing
+</button>
     </div>
 
 
@@ -121,6 +123,48 @@ Thank You ❤️
 
 </div>
 
+    <script>
+
+document.getElementById("micBtn").addEventListener("click", () => {
+
+navigator.mediaDevices.getUserMedia({ audio: true })
+.then(function(stream){
+
+const audioContext = new AudioContext();
+const microphone = audioContext.createMediaStreamSource(stream);
+const analyser = audioContext.createAnalyser();
+
+microphone.connect(analyser);
+
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+function detectBlow(){
+
+    analyser.getByteFrequencyData(dataArray);
+
+    let volume = dataArray.reduce((a,b)=>a+b)/dataArray.length;
+
+    if(volume > 60){
+
+        document.getElementById("candles").innerHTML = "💨";
+
+        setTimeout(() => {
+            nextPage();
+        },1000);
+
+        return;
+    }
+
+    requestAnimationFrame(detectBlow);
+}
+
+detectBlow();
+
+});
+
+});
+
+</script>
 <script src="script.js"></script>
 
 </body>
