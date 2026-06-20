@@ -123,3 +123,13 @@ page2Candles();
 },500);
 
 };
+
+document.addEventListener("click", function () {
+
+    let music = document.getElementById("bgMusic");
+
+    if (music.paused) {
+        music.play();
+    }
+
+}, { once: true });
