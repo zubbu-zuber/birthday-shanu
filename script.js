@@ -37,19 +37,6 @@ document.getElementById("page4").classList.remove("hidden");
 
 }
 
-function lastPage(){
-
-document.querySelector(".heart4").style.visibility="hidden";
-
-setTimeout(() => {
-
-document.getElementById("page4").classList.add("hidden");
-document.getElementById("page5").classList.remove("hidden");
-
-},500);
-
-}
-
 /* ❤️ Photo Slider */
 
 let images = [
