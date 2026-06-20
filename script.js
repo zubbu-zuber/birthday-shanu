@@ -1,44 +1,152 @@
 function nextPage() {
-    document.getElementById("page1").classList.add("hidden");
-    document.getElementById("page2").classList.remove("hidden");
-}
 
-function showMemories() {
-    document.getElementById("page2").classList.add("hidden");
-    document.getElementById("page3").classList.remove("hidden");
-}
+document.querySelector(".heart1").innerHTML="💥";
 
-function showMessage() {
-    document.getElementById("page3").classList.add("hidden");
-    document.getElementById("page4").classList.remove("hidden");
-}
+setTimeout(() => {
 
-function lastPage() {
-    document.getElementById("page4").classList.add("hidden");
-    document.getElementById("page5").classList.remove("hidden");
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+
+},500);
+
 }
 
 
-// Photo Slider
+
+function showMemories(){
+
+document.querySelector(".cake2").innerHTML="💥";
+
+setTimeout(() => {
+
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+
+},500);
+
+}
+
+
+
+function showMessage(){
+
+document.querySelector(".heart3").innerHTML="💥";
+
+setTimeout(() => {
+
+document.getElementById("page3").classList.add("hidden");
+document.getElementById("page4").classList.remove("hidden");
+
+},500);
+
+}
+
+
+
+function lastPage(){
+
+document.querySelector(".heart4").innerHTML="💥";
+
+setTimeout(() => {
+
+document.getElementById("page4").classList.add("hidden");
+document.getElementById("page5").classList.remove("hidden");
+
+},500);
+
+}
+
+
+
+/* ❤️ Photo Slider */
 
 let images = [
-    "1.jpeg",
-    "2.jpeg",
-    "3.jpeg",
-    "4.jpeg",
-    "5.jpeg"
+
+"1.jpeg",
+"2.jpeg",
+"3.jpeg",
+"4.jpeg",
+"5.jpeg"
+
 ];
 
 let index = 0;
 
-setInterval(() => {
+function changeImage(){
 
-    index++;
+index++;
 
-    if(index >= images.length){
-        index = 0;
-    }
+if(index >= images.length){
 
-    document.getElementById("slider").src = images[index];
+index = 0;
 
-}, 3000);
+}
+
+let slider = document.getElementById("slider");
+
+if(slider){
+
+slider.src = images[index];
+
+}
+
+}
+
+setInterval(changeImage,3000);
+
+
+
+/* 🕯️ Page 1 Candles Auto Blow */
+
+setTimeout(() => {
+
+let c1 = document.getElementById("candles1");
+
+if(c1){
+
+c1.innerHTML = "💨";
+
+}
+
+},5000);
+
+
+
+/* 🕯️ Page 2 Candles Auto Blow */
+
+function page2Candles(){
+
+setTimeout(() => {
+
+let c2 = document.getElementById("candles2");
+
+if(c2){
+
+c2.innerHTML = "💨";
+
+}
+
+},5000);
+
+}
+
+
+
+/* Page 2 open hone ke baad candle timer start */
+
+const originalNextPage = nextPage;
+
+nextPage = function(){
+
+document.querySelector(".heart1").innerHTML="💥";
+
+setTimeout(() => {
+
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+
+page2Candles();
+
+},500);
+
+};
